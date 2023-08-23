@@ -1,1 +1,9 @@
 
+
+CREATE TABLE productdetails (
+    productID INT PRIMARY KEY,
+    ProductName VARCHAR(255),
+    CompanyName VARCHAR(255),
+    Rate DECIMAL(10, 2),
+    AvailableQuantity INT
+);
