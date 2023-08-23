@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     body {
+      font-family: cursive;
+      background-color: #f3f3f3;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      margin: 0 auto;
+    }
+    form {
+      text-align: left;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    #total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    #productList {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+    table, th, td {    
+border: 1px solid black;  
+margin-left: auto;  
+margin-right: auto;  
+border-collapse: collapse;    
+width: 500px;  
+text-align: center;  
+font-size: 20px;  
+}    
+    body {
+
+            text-align: center;
+            font-family: cursive;
+            background-color: #f2f2f2;
+            color: #181717;
+        }
+</style>
+<body>
+    <table style="width:80%" class="container">
+        <tr>
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Product</th>
+            <th >Product Name</th>
+            <th>Product Id</th>
+            <th>Rate</th>
+            <!-- <th>quantity</th> -->
+            <th>Available Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for row in output_data %} 
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <!-- <td>{{row[5]}}</td> -->
+                    <td>{{row[6]}}</td>
+                </tr>
+            {% endfor %}       
+        </tbody>
+    </table>
+    <div class="container">
+    <form action="/add" method="post">
+      <label for="productID">Product ID:</label>
+      <input type="text" id="productID" name="productID" required><br>
+      <label for="productName">Product:</label>
+      <input type="text" id="productName" name="productName" required><br>
+      <label for="Pname">Product Name:</label>
+      <input type="text" id="item" name="item" required><br>
+      <label for="productRate">Rate (in Rupees):</label>
+      <input type="number" id="productRate" name="productRate" required><br>
+      <label for="availableQuantity">Entering Quantity:</label>
+      <input type="number" id="availableQuantity" name="availableQuantity" required><br>
+      <input type="submit" value="Add">
+    </div>
+    <div class="container">
+        <form action="/finish" method="post">
+          <input type="submit" value="finish"><br />
+        </form>
+      </div>  
+    </form>
+</body>
+</html>
+
